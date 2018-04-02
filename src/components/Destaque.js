@@ -7,10 +7,11 @@ const Inicio = styled.div`
     color: white;
 `;
 
-export default () => {
+export default ({pelicula}) => {
     return (
         <Inicio>
             <div>Pelicula destacada</div>
+            <p>{pelicula.title}</p>
         </Inicio>
     )
 }

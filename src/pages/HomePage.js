@@ -6,7 +6,8 @@ import axios from 'axios';
 class HomePage extends React.Component {
 
     state = {
-        resultados: []
+        resultados: [],
+        peliculaDestacada: ""
     }
 
     componentDidMount() {
@@ -17,7 +18,8 @@ class HomePage extends React.Component {
         try {
             const resultados = await axios.get('https://api.themoviedb.org/3/movie/now_playing?api_key=3b4a278d61b1cf1d1cf38e59c74e49ab&language=es');
             this.setState({
-                resultados: resultados.data.results
+                resultados: resultados.data.results,
+                peliculaDestacada: resultados.data.results[Math.floor( Math.random() * resultados.data.results.length )]
             })
         } catch (error) {
             console.info("error", error);
@@ -29,7 +31,7 @@ class HomePage extends React.Component {
         return (
             <div>
                 <div>HomePage</div>
-                <Destaque />
+                <Destaque pelicula={ this.state.peliculaDestacada } />
                 <Estrenos data={ this.state.resultados } />
             </div>
         )
