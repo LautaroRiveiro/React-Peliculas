@@ -30,7 +30,6 @@ class HomePage extends React.Component {
     render() {
         return (
             <div>
-                <div>HomePage</div>
                 <Destaque pelicula={ this.state.peliculaDestacada } />
                 <Estrenos data={ this.state.resultados } />
             </div>

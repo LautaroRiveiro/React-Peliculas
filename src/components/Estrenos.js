@@ -2,11 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Contenedor = styled.div`
+    background:rgba(25,25,200,1);
+    font-size: 50px;
+    font-family: 'Calibri';
+    >h2{
+        margin: 0px;
+    }
     >ul{
+        margin-top: 10px;
         display:flex;
         overflow:scroll;
         padding-left:0px;
-        background:rgba(25,25,200,1);
+        margin-bottom: 0px;
     }
 `;
 
@@ -50,12 +57,12 @@ const ItemPelicula = styled.li`
 export default (props) => {
     return (
         <Contenedor>
-            Estrenos
+            <h2>Estrenos</h2>
             <ul>
                 {
                     props.data.map((pelicula) => (
                         <ItemPelicula key={pelicula.id} img={pelicula.poster_path}>
-                            <img src={"https://image.tmdb.org/t/p/w500"+pelicula.poster_path} alt=""/>
+                            <img src={"https://image.tmdb.org/t/p/w500" + pelicula.poster_path} alt="" />
                             <span>{pelicula.title}</span>
                         </ItemPelicula>
                     ))
