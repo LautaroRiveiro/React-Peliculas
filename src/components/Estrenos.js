@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 const Contenedor = styled.div`
     background:rgba(25,25,200,1);
@@ -17,7 +18,7 @@ const Contenedor = styled.div`
     }
 `;
 
-const ItemPelicula = styled.li`
+const ItemPelicula = styled(Link)`
     list-style:none;
     margin:5px;
     min-width:200px; 
@@ -57,11 +58,11 @@ const ItemPelicula = styled.li`
 export default (props) => {
     return (
         <Contenedor>
-            <h2>Estrenos</h2>
+            <h2>{props.title}</h2>
             <ul>
                 {
                     props.data.map((pelicula) => (
-                        <ItemPelicula key={pelicula.id} img={pelicula.poster_path}>
+                        <ItemPelicula key={pelicula.id} img={pelicula.poster_path} to="/detalles">
                             <img src={"https://image.tmdb.org/t/p/w500" + pelicula.poster_path} alt="" />
                             <span>{pelicula.title}</span>
                         </ItemPelicula>
