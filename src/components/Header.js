@@ -1,9 +1,9 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default ()=>(
     <div className="header">
-        App
-
+        <Link to="/" className="link">App</Link>
         <style jsx>{`
             .header{
                 background-color:black;
@@ -12,6 +12,11 @@ export default ()=>(
                 color: white;
                 font-size: 40px;
                 padding: 10px;
+                
+            }
+            .link{
+                text-decoration: none;
+                color: white;
             }
         `}
         </style>
