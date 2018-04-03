@@ -62,7 +62,7 @@ export default (props) => {
             <ul>
                 {
                     props.data.map((pelicula) => (
-                        <ItemPelicula key={pelicula.id} img={pelicula.poster_path} to="/detalles">
+                        <ItemPelicula key={pelicula.id} img={pelicula.poster_path} to={`/detalles/${ pelicula.id }`}>
                             <img src={"https://image.tmdb.org/t/p/w500" + pelicula.poster_path} alt="" />
                             <span>{pelicula.title}</span>
                         </ItemPelicula>

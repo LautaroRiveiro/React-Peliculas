@@ -49,16 +49,20 @@ const Banner = styled.div`
 `;
 
 export default ({ pelicula }) => {
-    return (
-        <div>
-            <Banner>
-                <h3>Pelicula destacada</h3>
-                <img src={"https://image.tmdb.org/t/p/w1280" + pelicula.backdrop_path} alt="" className="main-banner-img" />
-                <div className="main-banner-data">
-                    <h3>{pelicula.title}</h3>
-                    <p>{pelicula.overview}</p>
-                </div>
-            </Banner>
-        </div>
-    )
+    if (pelicula) {
+        return (
+            <div>
+                <Banner>
+                    <h3>Pelicula destacada</h3>
+                    <img src={"https://image.tmdb.org/t/p/w1280" + pelicula.backdrop_path} alt="" className="main-banner-img" />
+                    <div className="main-banner-data">
+                        <h3>{pelicula.title}</h3>
+                        <p>{pelicula.overview}</p>
+                    </div>
+                </Banner>
+            </div>
+        )
+    } else {
+        return <p>Cargando...</p>
+    }
 }
