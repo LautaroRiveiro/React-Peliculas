@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
 const Contenedor = styled.div`
-    background:rgba(25,25,200,1);
+    background:#007BDF;
     font-size: 50px;
     font-family: 'Calibri';
     >h2{
         margin: 0px;
+        color: #53575A;
+        font-size:50px;
     }
     >ul{
         margin-top: 10px;

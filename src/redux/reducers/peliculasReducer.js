@@ -14,6 +14,13 @@ export default ( state=initialState, action )=>{
                 cartelera: results,
                 peliculaDestacada: results[ Math.floor(Math.random()*results.length) ]
             });
+        case tipos.GET_PROXIMOS_ESTRENOS_FULFILLED:
+            return Object.assign({},state,{
+                proximosEstrenos: action.payload.data.results
+            });
+        case tipos.GET_PROXIMOS_ESTRENOS_REJECTED:
+            console.info("ERROR!!");
+            return state;
         default:
             return state;
     }

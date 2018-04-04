@@ -4,19 +4,21 @@ import Estrenos from '../components/Estrenos';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {getCartelera} from "../redux/actions/carteleraAction";
+import {getProximosEstrenos} from "../redux/actions/estrenosAction";
 
 class HomePage extends React.Component {
 
     state = {
         //resultados: [],
         //peliculaDestacada: "",
-        proximosEstrenos: []
+        //proximosEstrenos: []
     };
 
     componentDidMount() {
         //this.getData();
-        this.getProximosEstrenos();
+        //this.getProximosEstrenos();
         this.props.getCartelera();
+        this.props.getProximosEstrenos();
         console.info("PROPS HOMEPAGE",this.props);
     }
 
@@ -33,25 +35,26 @@ class HomePage extends React.Component {
             }
         };
     */
+    /* Refactorizado. Se incluye en Store de Redux.
+        getProximosEstrenos = async ()=>{
+            try {
+                const proximosEstrenos = await axios.get('https://api.themoviedb.org/3/movie/upcoming?api_key=3b4a278d61b1cf1d1cf38e59c74e49ab&language=es');
+                this.setState({
+                    proximosEstrenos: proximosEstrenos.data.results
+                })
+            } catch (error) {
+                console.info("errores",error);
+            }
 
-    getProximosEstrenos = async ()=>{
-        try {
-            const proximosEstrenos = await axios.get('https://api.themoviedb.org/3/movie/upcoming?api_key=3b4a278d61b1cf1d1cf38e59c74e49ab&language=es');
-            this.setState({
-                proximosEstrenos: proximosEstrenos.data.results
-            })
-        } catch (error) {
-            console.info("errores",error);
-        }
-
-    };
+        };
+    */
 
     render() {
         return (
             <div>
                 <Destaque pelicula={this.props.peliculas.peliculaDestacada} />
                 <Estrenos title="En Cartelera"      data={this.props.peliculas.cartelera} />
-                <Estrenos title="Próximos Estrenos" data={this.state.proximosEstrenos} />
+                <Estrenos title="Próximos Estrenos" data={this.props.peliculas.proximosEstrenos} />
             </div>
         )
     }
@@ -64,4 +67,4 @@ function mapStateToProps( store ){
     }
 }
 
-export default connect(mapStateToProps,{getCartelera})(HomePage);
+export default connect(mapStateToProps,{getCartelera,getProximosEstrenos})(HomePage);
