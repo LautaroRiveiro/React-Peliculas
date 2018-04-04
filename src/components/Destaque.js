@@ -63,6 +63,6 @@ export default ({ pelicula }) => {
             </div>
         )
     } else {
-        return <p>Cargando...</p>
+        return <h1>Cargando...</h1>
     }
 }
