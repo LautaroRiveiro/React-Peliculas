@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {updateFecha} from './redux/actions/updateFechaAction';
+
 //Pages
 import HomePage from './pages/HomePage';
 import DetallesPage from './pages/DetallesPage';
@@ -19,7 +20,7 @@ class App extends Component {
         return (
           <BrowserRouter>
             <div>
-              <Header fecha={this.props.fecha.data} />
+              <Header fecha={this.props.fecha.data}/>
               <Route exact path="/" component={ HomePage } />
               <Route path="/detalles/:id" component={ DetallesPage } />
               <Footer/>
@@ -31,7 +32,7 @@ class App extends Component {
 
 function mapStateToProps(store){
   return{
-    fecha: store.fecha
+      fecha: store.fecha
   }
 }
 

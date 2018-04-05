@@ -1,7 +1,6 @@
 import React from 'react';
 import Destaque from '../components/Destaque';
 import Estrenos from '../components/Estrenos';
-import axios from 'axios';
 import {connect} from 'react-redux';
 import {getCartelera} from "../redux/actions/carteleraAction";
 import {getProximosEstrenos} from "../redux/actions/estrenosAction";

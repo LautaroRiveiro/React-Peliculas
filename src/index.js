@@ -17,7 +17,7 @@ injectGlobal`
     }
 `;
 
-const store = createStore( reducers, {}, applyMiddleware(promise(),thunk,logger) );
+const store = createStore( reducers, {}, applyMiddleware(promise(),thunk, logger) );
 
 console.info("store",store.getState());
 

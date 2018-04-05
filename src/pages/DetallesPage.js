@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import Destaque from '../components/Destaque';
 import styled from 'styled-components';
 import {connect} from 'react-redux';

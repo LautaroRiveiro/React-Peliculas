@@ -1,9 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Buscador from './Buscador';
 
 export default (props)=>(
     <div className="header">
         <Link to="/" className="link">App</Link>
+
+        <Buscador></Buscador>
+
         <div id="fecha">{props.fecha.toLocaleString()}</div>
 
         <style jsx>{`
