@@ -48,7 +48,7 @@ class Buscador extends React.Component{
       return(
           <Contenedor>
               <form>
-                  <span style={{fontSize:"18px",paddingRight:"10px"}}>Buscar:</span>
+                  <label htmlFor="buscador" style={{fontSize:"18px",paddingRight:"10px"}}>Buscar:</label>
                   <input type="text" name="buscador" id="buscador" onChange={e=>this.props.busqueda(e.target.value)} onBlur={this.onBlur} onFocus={this.onFocus}/>
               </form>
               <Lista id="lista" tabindex="0">
